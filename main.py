@@ -38,38 +38,37 @@ for file_name in files_names:
             distorted_data_10A.set_data_from_csv(tmp)
 
 # Dividing all data from each data set into smaller list (chunks)
-# Now data from csv is being cut into smaller chunks and is is stored as list of chunks -> datachunks
-data = divide_into_chunks(healthy_data_5A.get_data_from_csv())
-healthy_data_5A.set_datachunks(data)
-data2 = divide_into_chunks(healthy_data_10A.get_data_from_csv())
-healthy_data_10A.set_datachunks(data2)
-data3 = divide_into_chunks(faulty_data_5A.get_data_from_csv())
-faulty_data_5A.set_datachunks(data3)
-data4 = divide_into_chunks(faulty_data_10A.get_data_from_csv())
-faulty_data_10A.set_datachunks(data4)
-data5 = divide_into_chunks(distorted_data_5A.get_data_from_csv())
-distorted_data_5A.set_datachunks(data5)
-data6 = divide_into_chunks(distorted_data_10A.get_data_from_csv())
-distorted_data_10A.set_datachunks(data6)
+# Now data from csv is being cut into smaller chunks and is is stored as list of chunks -> data_chunks
+divide_into_chunks(healthy_data_5A.get_data_from_csv())
+divide_into_chunks(healthy_data_10A.get_data_from_csv())
+divide_into_chunks(faulty_data_5A.get_data_from_csv())
+divide_into_chunks(faulty_data_10A.get_data_from_csv())
+divide_into_chunks(distorted_data_5A.get_data_from_csv())
+divide_into_chunks(distorted_data_10A.get_data_from_csv())
+
 
 # Z CZEGO TWORZYMY HAMMING WINDOW???
 # DO TEGO MIEJSCA ZROBILEM
 
-# Making hamming window from chunks that were previously created
-healthy_data_5A = make_hamming_window(healthy_data_5A)
-healthy_data_10A = make_hamming_window(healthy_data_10A)
-faulty_data_5A = make_hamming_window(faulty_data_5A)
-faulty_data_10A = make_hamming_window(faulty_data_10A)
-distorted_data_5A = make_hamming_window(distorted_data_5A)
-distorted_data_10A = make_hamming_window(distorted_data_10A)
+# Merging chunks into one list for each main dataset
+healthy_data_5A.set_merged_chunks()
+healthy_data_10A.set_merged_chunks()
+faulty_data_5A.set_merged_chunks()
+faulty_data_10A.set_merged_chunks()
+distorted_data_5A.set_merged_chunks()
+distorted_data_10A.set_merged_chunks()
 
-# Merging chunks of hamming window into one list for each main dataset
-healthy_data_5A = merge_into_one_list(healthy_data_5A)
-healthy_data_10A = merge_into_one_list(healthy_data_10A)
-faulty_data_5A = merge_into_one_list(faulty_data_5A)
-faulty_data_10A = merge_into_one_list(faulty_data_10A)
-distorted_data_5A = merge_into_one_list(distorted_data_5A)
-distorted_data_10A = merge_into_one_list(distorted_data_10A)
+
+
+# Making hamming window from chunks that were previously created
+# healthy_data_5A = make_hamming_window(healthy_data_5A)
+# healthy_data_10A = make_hamming_window(healthy_data_10A)
+# faulty_data_5A = make_hamming_window(faulty_data_5A)
+# faulty_data_10A = make_hamming_window(faulty_data_10A)
+# distorted_data_5A = make_hamming_window(distorted_data_5A)
+# distorted_data_10A = make_hamming_window(distorted_data_10A)
+
+
 
 
 

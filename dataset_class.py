@@ -1,6 +1,6 @@
 
 class Dataset():
-    def __init__(self,data, data_path, parent_name):
+    def __init__(self, data, data_path, parent_name):
         self.hamming_window = None
         self.data_chunks = None
         self.data = data
@@ -28,7 +28,7 @@ class Dataset():
     def get_len(self):
         return self.len
 
-    def get_divder_for_chunks(self):
+    def get_divider_for_chunks(self):
         return self.frequency*2
 
     def get_data(self):
