@@ -1,6 +1,6 @@
 import pandas as pd
 from dataset_class import *
-import main_data_set
+import main_dataset_class
 from termcolor import colored
 import os
 
@@ -109,12 +109,12 @@ def data_names_sorting():
 
 def fulfill_main_data_set_container(files_names):
     # Declaration of main datasets containers and storing it inside container
-    healthy_data_5A = main_data_set.Main_Dataset('healthy_data_5A')
-    healthy_data_10A = main_data_set.Main_Dataset('healthy_data_10A')
-    faulty_data_5A = main_data_set.Main_Dataset('faulty_data_5A')
-    faulty_data_10A = main_data_set.Main_Dataset('faulty_data_10A')
-    distorted_data_5A = main_data_set.Main_Dataset('distorted_data_5A')
-    distorted_data_10A = main_data_set.Main_Dataset('distorted_data_10A')
+    healthy_data_5A = main_dataset_class.Main_Dataset('healthy_data_5A')
+    healthy_data_10A = main_dataset_class.Main_Dataset('healthy_data_10A')
+    faulty_data_5A = main_dataset_class.Main_Dataset('faulty_data_5A')
+    faulty_data_10A = main_dataset_class.Main_Dataset('faulty_data_10A')
+    distorted_data_5A = main_dataset_class.Main_Dataset('distorted_data_5A')
+    distorted_data_10A = main_dataset_class.Main_Dataset('distorted_data_10A')
 
     for file_name in files_names:
         for item in files_names[file_name]:
