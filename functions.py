@@ -109,18 +109,18 @@ def data_names_sorting():
 
 def fulfill_main_data_set_container(files_names):
     # Declaration of main datasets containers and storing it inside container
-    healthy_data_5A = main_data_set.DataSet('healthy_data_5A')
-    healthy_data_10A = main_data_set.DataSet('healthy_data_10A')
-    faulty_data_5A = main_data_set.DataSet('faulty_data_5A')
-    faulty_data_10A = main_data_set.DataSet('faulty_data_10A')
-    distorted_data_5A = main_data_set.DataSet('distorted_data_5A')
-    distorted_data_10A = main_data_set.DataSet('distorted_data_10A')
+    healthy_data_5A = main_data_set.Main_Dataset('healthy_data_5A')
+    healthy_data_10A = main_data_set.Main_Dataset('healthy_data_10A')
+    faulty_data_5A = main_data_set.Main_Dataset('faulty_data_5A')
+    faulty_data_10A = main_data_set.Main_Dataset('faulty_data_10A')
+    distorted_data_5A = main_data_set.Main_Dataset('distorted_data_5A')
+    distorted_data_10A = main_data_set.Main_Dataset('distorted_data_10A')
 
     for file_name in files_names:
         for item in files_names[file_name]:
             file_path = './Pomiary_BLDG/' + item
             data = pd.read_csv(file_path)
-            tmp = Dataset(data=data, data_path=file_path, parent_name=item)
+            tmp = Small_Dataset(data=data, data_path=file_path, parent_name=item)
             if file_name == "healthy_data_5A":
                 healthy_data_5A.set_data_from_csv(tmp)
             if file_name == "healthy_data_10A":

@@ -1,7 +1,7 @@
 import functions
 
 
-class DataSet:
+class Main_Dataset:
     def __init__(self, name):
         self.name_of_container = name
         self.data_from_csv = []
