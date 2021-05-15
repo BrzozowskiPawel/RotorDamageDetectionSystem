@@ -1,5 +1,5 @@
 
-class Dataset():
+class Dataset:
     def __init__(self, data, data_path, parent_name):
         self.hamming_window = None
         self.data_chunks = None

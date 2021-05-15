@@ -1,8 +1,8 @@
-import merge_function
+import functions
 
 
-class DataSet():
-    def __init__(self,name):
+class DataSet:
+    def __init__(self, name):
         self.name_of_container = name
         self.data_from_csv = []
         self.merged_chunks = []
@@ -12,7 +12,7 @@ class DataSet():
         self.data_from_csv.append(data)
 
     def set_merged_chunks(self):
-        tmp = merge_function.merge_into_one_list(self.data_from_csv)
+        tmp = functions.merge_into_one_list(self.data_from_csv)
         self.merged_chunks.append(tmp)
 
     # GETTERS

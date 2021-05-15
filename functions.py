@@ -3,7 +3,20 @@ from dataset_class import *
 import main_data_set
 from termcolor import colored
 import os
-from creating_chunks import *
+
+
+def merge_into_one_list(data):
+    tmp = []
+    for item in data:
+        x = item.get_chunks()
+        for item2 in x:
+            tmp.append(item2)
+    return tmp
+
+
+def create_chunks(list_name, n):
+    for i in range(0, len(list_name), n):
+        yield list_name[i:i + n]
 
 
 def divide_into_chunks(data_set):
@@ -14,12 +27,12 @@ def divide_into_chunks(data_set):
         chunk = list(create_chunks(list_name=data, n=n))
         item.set_chunks(chunk)
 
+
 # This function is searching for specific characters in names of datasets.
 # It returns dictionary of main data sets and as parameter names of different files corresponding with the main one.
 def data_names_sorting():
     print('Starting to find name of a file')
     data_names = os.listdir('./Pomiary_BLDG/')
-
 
     # Sorting data_names to 10A or 5A + Healthy, Faulty or Distorted
     healthy_data_5A = []
