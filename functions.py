@@ -7,7 +7,6 @@ def get_data_from_csv(type):
     if type != 'healthy' or type != 'faulty':
 
         # Loading list of files names
-        print(f'Starting downloading {type} data')
         files_names = os.listdir(f'./datasets/{type}')
         dataset_list = []
 
@@ -16,7 +15,7 @@ def get_data_from_csv(type):
             with open(f"./datasets/{type}/{file_path}", 'r') as file:
                 df = pd.read_csv(file)
                 dataset_list.append(df)
-        print(f'Downloaded {len(dataset_list)} files')
+        print(f'Downloaded {len(dataset_list)} files in {type} data completed')
 
         # Returning list of all loaded files as list of DataFrame objects
         return dataset_list
