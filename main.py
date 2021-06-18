@@ -1,5 +1,5 @@
 import time
-
+import numpy as np
 import functions
 import dataset_class
 from sklearn.model_selection import train_test_split
@@ -19,7 +19,7 @@ healthy.compute_hamming_window()
 faulty.compute_hamming_window()
 
 
-# Creating wawelets
+# Creating wawelets and computing standard deviation for each list of wawelets
 healthy.create_wavelet_packet()
 faulty.create_wavelet_packet()
 
@@ -29,14 +29,19 @@ faulty.create_wavelet_packet()
 #Dane - zbior cech rpzetowroznych z kazdego okna. Wyciagniemy je z okna hamminga
 #Target - H czy F (binarnie 1 lub 0)x
 
-# X_train, X_test, y_train, y_test = train_test_split(DANE, TARGET, test_size = 0.3)
-# model = RandomForestClassifier(n_estimators=20)
-# model.fit(X_train, y_train)
-# model.score(X_test, y_test)
-#
-#
-# y_predict = model.predict(X_test)
-# cm = confusion_matrix(y_test, y_predict)
-#
+
+DANE = healthy.get_std_deviation_list() + faulty.get_std_deviation_list()
+TARGET = healthy.get_target() + faulty.get_target()
+DANE = np.reshape(DANE, (len(DANE), 1))
+
+X_train, X_test, y_train, y_test = train_test_split(DANE, TARGET, test_size = 0.3)
+model = RandomForestClassifier(n_estimators=20)
+model.fit(X_train, y_train)
+model.score(X_test, y_test)
+
+y_predict = model.predict(X_test)
+cm = confusion_matrix(y_test, y_predict)
+ 
+
 
 

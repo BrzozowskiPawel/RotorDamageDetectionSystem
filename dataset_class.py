@@ -11,6 +11,7 @@ class Dataset:
         self.hamming_window_list = []
         self.wavelet_list = []
         self.std_deviation_list = []
+        self.target_list = []
 
     def standard_deviation(self):
         for item in self.wavelet_list:
@@ -60,6 +61,19 @@ class Dataset:
         self.standard_deviation()
         print(f'Wavelet packet created + calculated std. deviation from this data {[self.data_type]}')
 
+    def get_std_deviation_list(self):
+        return self.std_deviation_list
+
+    def get_target(self):
+        num_of_targets = len(self.std_deviation_list)
+        if self.data_type == "healthy":
+            target = 1
+        elif self.data_type == "faulty":
+            target = 0
+        for i in range(num_of_targets):
+            self.target_list.append(target)
+
+        return self.target_list
 
 
 
