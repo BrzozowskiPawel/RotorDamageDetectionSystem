@@ -1,15 +1,20 @@
 import time
-
+import statistics
 import numpy as np
 import Cython
 import pywt
 
 class Dataset:
-    def __init__(self, data):
+    def __init__(self, data, data_type):
+        self.data_type = data_type
         self.data_from_csv = data
         self.hamming_window_list = []
         self.wavelet_list = []
+        self.std_deviation_list = []
 
+    def standard_deviation(self):
+        for item in self.wavelet_list:
+            self.std_deviation_list.append(statistics.stdev(item))
 
     def compute_hamming_window(self):
         for item in self.data_from_csv:
@@ -25,7 +30,7 @@ class Dataset:
                 tmp_compute = current_array[i][0]*hamming[i]
                 temporary_hamming_window.append(tmp_compute)
             self.hamming_window_list.append(temporary_hamming_window)
-        print('Hamming window created')
+        print(f'Hamming window created {[self.data_type]}')
 
     def get_hamming_window_list(self):
         return self.hamming_window_list
@@ -52,8 +57,9 @@ class Dataset:
             self.wavelet_list.append(wp['ddda'].data)
             self.wavelet_list.append(wp['dddd'].data)
 
+        self.standard_deviation()
+        print(f'Wavelet packet created + calculated std. deviation from this data {[self.data_type]}')
 
 
-        print('Wavelet packet created')
 
 

@@ -9,14 +9,15 @@ from sklearn.metrics import confusion_matrix
 # Loading files from csv.
 # Function functions.get_data_from_csv() requires type of data set [healthy or faulty] and return list of pandas DataFrame objects
 # Returned data from function above is now assigned as data_from_csf parameter in dataset_class.Dataset()
-healthy = dataset_class.Dataset(functions.get_data_from_csv(type="healthy"))
-faulty = dataset_class.Dataset(functions.get_data_from_csv(type="faulty"))
+healthy = dataset_class.Dataset(functions.get_data_from_csv(type="healthy"), data_type="healthy")
+faulty = dataset_class.Dataset(functions.get_data_from_csv(type="faulty"), data_type="faulty")
 
 
 # Now hamming window function is being computed for each item in data_from_csv parameter od Dataset()
 # Elements are saved in new list (Dataset() in parameter hamming_window_list
 healthy.compute_hamming_window()
 faulty.compute_hamming_window()
+
 
 # Creating wawelets
 healthy.create_wavelet_packet()
