@@ -4,7 +4,7 @@ import functions
 import dataset_class
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score, confusion_matrix
 
 # Loading files from csv.
 # Function functions.get_data_from_csv() requires type of data set [healthy or faulty] and return list of pandas DataFrame objects
@@ -40,8 +40,10 @@ model.fit(X_train, y_train)
 model.score(X_test, y_test)
 
 y_predict = model.predict(X_test)
+acc = accuracy_score(y_test, y_predict)
+print(f'accuracy: {acc}')
 cm = confusion_matrix(y_test, y_predict)
- 
+
 
 
 
