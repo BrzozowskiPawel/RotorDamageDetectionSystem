@@ -1,7 +1,5 @@
-import time
 import statistics
 import numpy as np
-import Cython
 import pywt
 
 class Dataset:
@@ -13,10 +11,12 @@ class Dataset:
         self.std_deviation_list = []
         self.target_list = []
 
+    # calculating standard deviation and saving it into object argument
     def standard_deviation(self):
         for item in self.wavelet_list:
             self.std_deviation_list.append(statistics.stdev(item))
 
+    # calculating hamming window and then appending it into object argument
     def compute_hamming_window(self):
         for item in self.data_from_csv:
             temporary_hamming_window = []
@@ -33,10 +33,11 @@ class Dataset:
             self.hamming_window_list.append(temporary_hamming_window)
         print(f'Hamming window created {[self.data_type]}')
 
+    # returning hamming window list
     def get_hamming_window_list(self):
         return self.hamming_window_list
 
-
+    # creating wavelet packet
     def create_wavelet_packet(self):
         for item in self.hamming_window_list:
             item = np.array(item)
@@ -59,11 +60,14 @@ class Dataset:
             self.wavelet_list.append(wp['dddd'].data)
 
         self.standard_deviation()
-        print(f'Wavelet packet created + calculated std. deviation from this data {[self.data_type]}')
+        print(f'Wavelet packet created + calculated std. deviation from {[self.data_type]}')
 
+    # Returning standard deviation
     def get_std_deviation_list(self):
         return self.std_deviation_list
 
+    # Returning target. This is required to sklearn's models.
+    # Objects could be either healthy (1) or faulty (0)
     def get_target(self):
         num_of_targets = len(self.std_deviation_list)
         if self.data_type == "healthy":

@@ -3,7 +3,7 @@ import os
 
 
 def get_data_from_csv(type):
-    #Checing if type of files is correct [there are only 2 options]
+    #Checing if type of files is correct [there are only 2 options as this was specyfied in task]
     if type != 'healthy' or type != 'faulty':
 
         # Loading list of files names
