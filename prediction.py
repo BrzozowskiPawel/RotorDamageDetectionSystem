@@ -24,7 +24,7 @@ def predict_values(healthy, faulty):
     # Predicting data and calculating it's accuracy
     y_predict = model.predict(X_test)
     acc = accuracy_score(y_test, y_predict)
-    print(f'accuracy: {acc*100} % \n')
+    print(f'accuracy: {round(acc*100, 2)} % \n')
     cm = confusion_matrix(y_test, y_predict)
 
     # Creating plots to visualize data
