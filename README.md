@@ -7,3 +7,4 @@ Using artificial intelligence algorithms (random forrest), we are analying the c
 Then we check whether it is possible to obtain a model that allows detecting rotor devices with satisfactory accuracy. 
 
 In order to obtain more information about the project and the code written, please read the file "Report.pdf" (file in Polish).
+This is our first ML project.
