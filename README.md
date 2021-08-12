@@ -22,7 +22,9 @@ This is our first ML project.
 - [Results](#results)
 
 - [Summary of results](#summary-of-results)
-- 
+
+- [Bibliography](#bibliography)
+
 ## Description
 
 The purpose of the following test is to create a model that allows for the detection of damage to unmanned aircraft propellers. This work is an extension of the engineering work of Mr. Paweł Drapikowski (Poznań University of Technology). The technical condition of the propellers was verified by using a module created by Mr. Paweł Drapikowski, which read the current flowing through the winding of the BLDC motor. Using a script written in Matlab, we collected data during laboratory measurements of rotor operation with different types of propellers in terms of wear.
@@ -51,3 +53,8 @@ Interpretation of the obtained results is not satisfactory. On average, we get a
 The research of the model as well as the selection of appropriate settings did not allow us to obtain satisfactory accuracy. 
 Overall, by examining the mean value of all measurements, we obtain an accuracy of 54.03%. The accuracy achieved with our basic model was 53.93%.
 The specificity of the conditions don't allows us to efficiently use the model, because in the case of choosing 1 of 2 options, the accuracy of approximately 54% means that it is a choice close to randomness. In the case of this work, the model did not work for the given conditions. However, it allowed us to acquire a large amount of knowledge from the field of artificial intelligence.
+
+## Bibliography
+- www.pywavelets.readthedocs.io/en/latest/
+- www.scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html 
+- www.github.com/BrzozowskiPawel/Projekt_AI_wirnik
