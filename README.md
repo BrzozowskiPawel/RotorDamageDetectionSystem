@@ -57,4 +57,3 @@ The specificity of the conditions don't allows us to efficiently use the model, 
 ## Bibliography
 - www.pywavelets.readthedocs.io/en/latest/
 - www.scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html 
-- www.github.com/BrzozowskiPawel/Projekt_AI_wirnik
